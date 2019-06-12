@@ -1,6 +1,23 @@
 apply plugin: 'java'
-subprojects {
-    repositories {
-        jcenter()
-    }
+apply plugin: 'maven'
+
+group = 'com.trainer.english'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+
+
+repositories {
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'2.1.5.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version:'2.1.5.RELEASE'
+    compile group: 'com.google.cloud', name: 'google-cloud-dialogflow', version:'0.95.0-alpha'
+    testCompile group: 'org.testng', name: 'testng', version:'6.14.3'
 }
